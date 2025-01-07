@@ -6,6 +6,64 @@ dotenv.config();
 
 const router = express.Router();
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Jugador:
+ *       type: object
+ *       properties:
+ *         ID:
+ *           type: integer
+ *         Nombre:
+ *           type: string
+ *         Posicion:
+ *           type: string
+ *         Nacionalidad:
+ *           type: string
+ *         Imagen:
+ *           type: string
+ *         ID_Equipo:
+ *           type: integer
+ *         esJugadorActual:
+ *           type: boolean
+ *         NumeroCamiseta:
+ *           type: integer
+ *         Edad:
+ *           type: integer
+ *         Altura:
+ *           type: number
+ *         Peso:
+ *           type: number
+ *         Universidad:
+ *           type: string
+ *         AniosActivos:
+ *           type: string
+ *         LogroPrincipal:
+ *           type: string
+ *       required:
+ *         - Nombre
+ *         - ID_Equipo
+ *         - esJugadorActual
+ */
+
+/**
+ * @swagger
+ * /api/jugadores:
+ *   get:
+ *     summary: Obtiene todos los jugadores
+ *     tags: [Jugadores]
+ *     responses:
+ *       200:
+ *         description: Lista de jugadores
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Jugador'
+ */
+
 // Database configuration
 const dbConfig = {
     host: process.env.DB_HOST,

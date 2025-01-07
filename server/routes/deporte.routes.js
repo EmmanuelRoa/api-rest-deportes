@@ -6,6 +6,57 @@ dotenv.config();
 
 const router = express.Router();
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Deporte:
+ *       type: object
+ *       properties:
+ *         ID:
+ *           type: integer
+ *         Nombre:
+ *           type: string
+ *       required:
+ *         - Nombre
+ */
+
+/**
+ * @swagger
+ * /api/deportes:
+ *   get:
+ *     summary: Obtiene todos los deportes
+ *     tags: [Deportes]
+ *     responses:
+ *       200:
+ *         description: Lista de deportes
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Deporte'
+ */
+
+/**
+ * @swagger
+ * /api/deportes/{id}:
+ *   get:
+ *     summary: Obtiene un deporte por ID
+ *     tags: [Deportes]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Deporte encontrado
+ *       404:
+ *         description: Deporte no encontrado
+ */
+
 // Database configuration
 const dbConfig = {
     host: process.env.DB_HOST,

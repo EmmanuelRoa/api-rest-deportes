@@ -6,6 +6,44 @@ dotenv.config();
 
 const router = express.Router();
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Estadistica:
+ *       type: object
+ *       properties:
+ *         ID:
+ *           type: integer
+ *         ID_Jugador:
+ *           type: integer
+ *         TipoEstadistica:
+ *           type: string
+ *         Valor:
+ *           type: number
+ *       required:
+ *         - ID_Jugador
+ *         - TipoEstadistica
+ *         - Valor
+ */
+
+/**
+ * @swagger
+ * /api/estadisticas:
+ *   get:
+ *     summary: Obtiene todas las estadísticas
+ *     tags: [Estadísticas]
+ *     responses:
+ *       200:
+ *         description: Lista de estadísticas
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Estadistica'
+ */
+
 // Database configuration
 const dbConfig = {
     host: process.env.DB_HOST,
